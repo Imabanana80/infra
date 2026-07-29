@@ -77,7 +77,7 @@ layout {
         width 2
 
         //catppuccin blue
-        active-color "#a6e3a1"
+        active-color "#b4befe"
 
         //catppuccin surface-1
         inactive-color "#45475a" 
@@ -105,7 +105,7 @@ layout {
 }
 
 
-spawn-sh-at-startup "qs -c ~/.config/quickshell/noctalia-shell/"
+spawn-sh-at-startup "qs"
 spawn-sh-at-startup "swaybg -i ~/infra/wallpaper/BlueNBeautiful.png"
 
 
@@ -274,7 +274,7 @@ binds {
 
     Mod+Ctrl+C { center-visible-columns; }
 
-     Mod+Minus { set-column-width "-10%"; }
+    Mod+Minus { set-column-width "-10%"; }
     Mod+Equal { set-column-width "+10%"; }
 
     Mod+Shift+Minus { set-window-height "-10%"; }

@@ -20,8 +20,8 @@ in
     home.packages = with pkgs; [
         fuzzel
         swaybg
-        quickshell
         nautilus
+        inputs.qml-niri.packages.${pkgs.system}.quickshell
 
         neovim
         ripgrep
@@ -52,6 +52,11 @@ in
 
 
     home.file.".zshrc".source = symlink "${dots}/.zshrc";
+    xdg.configFile."quickshell" = {
+        source = symlink "${dots}/quickshell";
+        recursive = true;
+    };
+
 
     xdg.configFile."git" = {
         source = symlink "${dots}/git";

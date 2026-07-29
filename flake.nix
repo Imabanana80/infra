@@ -13,8 +13,18 @@
               home-manager.follows = "home-manager";
             };
         };    
+        quickshell = {
+            url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
+        qml-niri = {
+            url = "github:imiric/qml-niri/main";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.quickshell.follows = "quickshell";
+        };
     };
-    outputs = { self, nixpkgs, home-manager, zen-browser, ... } @inputs: {
+    outputs = { self, nixpkgs, home-manager, zen-browser, qml-niri, ... } @inputs: {
         nixosConfigurations.penguin = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
