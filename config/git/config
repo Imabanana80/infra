@@ -1,0 +1,43 @@
+[user]
+	email = git@imabanana80.com
+	name = Banana
+
+[core]
+    compression = 8
+    whitespace = error
+    preloadindex = true
+	autocrlf = input
+
+[inti]
+    defaultBranch = main
+
+[status]
+    branch = true
+    showUntrackedFiles = all
+
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+
+[log]
+    abbrevCommit = true
+
+[branch] 
+    sort = -committerdate
+
+[tag]
+    sort = -taggerdate
+[alias]
+    tree = log --oneline --graph --all
+    mirror = !git-mirror.sh
+[init]
+	defaultBranch = main

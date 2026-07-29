@@ -1,0 +1,28 @@
+# Catppuccin Macchiato for tuxedo.
+# Copy into ${XDG_CONFIG_HOME:-$HOME/.config}/tuxedo/themes/ and press T to select it.
+name = Catppuccin Macchiato
+bg = #1e2030
+panel = #24273a
+border = #6e738d
+fg = #cad3f5
+dim = #8087a2
+accent = #8aadf4
+cursor = #5b6078
+selection = #494d64
+statusbar = #363a4f
+status_fg = #a5adcb
+mode_fg = #24273a
+mode_bg = #8aadf4
+pri_a = #ed8796
+pri_b = #eed49f
+pri_c = #a6da95
+pri_d = #8aadf4
+pri_other = #c6a0f6
+project = #8bd5ca
+context = #f5a97f
+due = #eed49f
+overdue = #ed8796
+today = #ee99a0
+done = #6e738d
+selected = #363a4f
+matched = #939ab7
