@@ -35,7 +35,8 @@ in
         cargo
         rustc
 
-        fastfetch
+        microfetch
+        nix-your-shell
         starship
         bat
         zoxide
