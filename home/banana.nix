@@ -41,6 +41,8 @@ in
         bat
         zoxide
         eza
+        bc
+        btop
 
         temurin-bin-25
         prismlauncher
