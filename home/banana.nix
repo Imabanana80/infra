@@ -1,52 +1,37 @@
 { config, pkgs, inputs, ... }:
 
-let 
-    dots = "${config.home.homeDirectory}/infra/config";
-    symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+let
+    inherit (import ./lib.nix config) dots symlink;
 in
-
 {
     home.username = "banana";
     home.homeDirectory = "/home/banana";
 
     imports = [
-        ./zen.nix
         ./niri.nix
+        ./ghostty.nix
+        ./neovim.nix
         ./tmux.nix
+        ./zen.nix
+        ./zsh.nix
     ];
 
     programs.mpv.enable = true;
 
     home.packages = with pkgs; [
-        fuzzel
-        swaybg
-        nautilus
-        inputs.qml-niri.packages.${pkgs.system}.quickshell
-
-        neovim
-        ripgrep
-        tree-sitter
-        prettierd
+        # Dev stuffs
         nil
         nixpkgs-fmt
         nodejs
+        prettierd
         gcc
-
         cargo
         rustc
-
-        microfetch
-        nix-your-shell
-        starship
-        bat
-        zoxide
-        eza
-        bc
-        btop
-
         temurin-bin-25
-        prismlauncher
 
+        # Rest 
+        bc
+        prismlauncher
         vesktop
         obsidian
         telegram-desktop
@@ -54,43 +39,15 @@ in
     ];
 
 
-    home.file.".zshrc".source = symlink "${dots}/.zshrc";
-    xdg.configFile."quickshell" = {
-        source = symlink "${dots}/quickshell";
-        recursive = true;
+    
+    # Tuxedo is installed via Cargo (and not on nixpkgs yet lol)
+    xdg.configFile."tuxedo" = {
+        source = symlink "${dots}/tuxedo";
     };
-
 
     xdg.configFile."git" = {
         source = symlink "${dots}/git";
         recursive = true;
-    };
-    xdg.configFile."nvim" = {
-        source = symlink "${dots}/nvim";
-        recursive = true;
-    };
-    xdg.configFile."ghostty" = {
-        source = symlink "${dots}/ghostty";
-        recursive = true;
-    };
-    xdg.configFile."fuzzel" = {
-        source = symlink "${dots}/fuzzel";
-        recursive = true;
-    };
-
-    xdg.configFile."bat" = {
-        source = symlink "${dots}/bat";
-        recursive = true;
-    };
-    xdg.configFile."starship.toml" = {
-        source = symlink "${dots}/starship.toml";
-    };
-    xdg.configFile."niri/config.kdl" = {
-        source = ../config/niri/config.kdl;
-    };
-
-    xdg.configFile."tuxedo" = {
-        source = symlink "${dots}/tuxedo";
     };
 
     home.stateVersion = "26.05";

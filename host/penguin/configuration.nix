@@ -41,24 +41,18 @@
 
   programs.zsh.enable = true;
   programs.niri.enable = true;
-  programs.firefox.enable = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-    "steam"
-    "steam-unwrapped"
-    "obsidian"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.trace "warning: allowing unfree package ${pkgs.lib.getName pkg}" true;
+
   programs.steam = {
     enable = true;
   };
 
   environment.systemPackages = with pkgs; [
-    xwayland-satellite
     vim     
-    wget
+    btop
     git
-    ghostty
-    obsidian
   ];
 
   fonts.packages = with pkgs; [
