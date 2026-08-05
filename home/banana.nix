@@ -40,15 +40,18 @@ in
         # python
         python3
 
+        # csharp
         jetbrains.rider
 
-        # Rest 
+        # CLI
         bc
         hledger
-        prismlauncher
+        
+        # GUI
         vesktop
         obsidian
         telegram-desktop
+        prismlauncher
         bambu-studio
         bruno
     ];
