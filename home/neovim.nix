@@ -13,6 +13,7 @@ in
         neovim
         ripgrep
         tree-sitter
+        lua-language-server
     ];
 
     xdg.configFile."nvim" = {

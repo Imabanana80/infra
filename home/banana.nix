@@ -19,22 +19,37 @@ in
     programs.mpv.enable = true;
 
     home.packages = with pkgs; [
-        # Dev stuffs
+        # nix
         nil
         nixpkgs-fmt
+
+        # js/ts
         nodejs
         prettierd
+
+        # c
         gcc
+
+        # rust
         cargo
         rustc
+
+        # java
         temurin-bin-25
+
+        # python
+        python3
+
+        jetbrains.rider
 
         # Rest 
         bc
+        hledger
         prismlauncher
         vesktop
         obsidian
         telegram-desktop
+        bambu-studio
         bruno
     ];
 
