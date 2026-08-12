@@ -91,7 +91,7 @@ PanelWindow {
     }
 
     Timer {
-        interval: 500
+        interval: 2000
         running: true
         repeat: true
         onTriggered: {

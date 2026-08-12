@@ -114,7 +114,7 @@ hotkey-overlay {
 }
 
 
-screenshot-path null
+screenshot-path "/home/banana/screenshots/%Y-%m-%d %H-%M-%S.png"
 
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {

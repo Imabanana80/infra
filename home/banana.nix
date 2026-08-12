@@ -30,6 +30,10 @@ in
         # c
         gcc
 
+        # zig
+        zig
+        zls
+
         # rust
         cargo
         rustc
@@ -41,6 +45,7 @@ in
         python3
 
         # csharp
+        dotnet-sdk
         jetbrains.rider
 
         # CLI
@@ -54,6 +59,7 @@ in
         prismlauncher
         bambu-studio
         bruno
+        freecad
     ];
 
 
