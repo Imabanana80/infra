@@ -36,10 +36,9 @@
     packages = with pkgs; [
       tree
     ];
-    shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
   programs.niri.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:

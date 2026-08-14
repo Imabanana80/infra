@@ -13,7 +13,7 @@ in
         ./neovim.nix
         ./tmux.nix
         ./zen.nix
-        ./zsh.nix
+        ./fish.nix
     ];
 
     programs.mpv.enable = true;

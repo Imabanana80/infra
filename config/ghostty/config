@@ -1,2 +1,3 @@
 theme = catppuccin-mocha.conf
-shell-integration = zsh
+command = direct:/etc/profiles/per-user/banana/bin/fish
+shell-integration = fish
