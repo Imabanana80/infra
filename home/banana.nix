@@ -8,12 +8,12 @@ in
     home.homeDirectory = "/home/banana";
 
     imports = [
-        ./niri.nix
-        ./ghostty.nix
-        ./neovim.nix
-        ./tmux.nix
-        ./zen.nix
-        ./fish.nix
+        ./modules/niri.nix
+        ./modules/ghostty.nix
+        ./modules/neovim.nix
+        ./modules/tmux.nix
+        ./modules/zen.nix
+        ./modules/fish.nix
     ];
 
     programs.mpv.enable = true;
