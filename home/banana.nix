@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 let
-    inherit (import ./lib.nix config) dots symlink;
+    inherit (import ./modules/lib.nix config) dots symlink;
 in
 {
     home.username = "banana";

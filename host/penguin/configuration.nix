@@ -4,6 +4,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./backup.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

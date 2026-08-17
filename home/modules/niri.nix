@@ -54,6 +54,6 @@ in
     };
     # Uses ghostty as default
     xdg.configFile."niri/config.kdl" = {
-        source = ../config/niri/config.kdl;
+        source = ../../config/niri/config.kdl;
     };
 } 
