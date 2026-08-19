@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
     common = import ../backups.nix;
+    home = "/home/banana";
 in
 {
     environment.systemPackages = with pkgs; [
@@ -8,16 +9,16 @@ in
     ];
 
     services.borgbackup.jobs.banana-home = {
-        paths = "/home/banana";
+        paths = "${home}";
         repo = "ssh://cdxh0c4w@cdxh0c4w.repo.borgbase.com/./repo";
-        exclude = common.mapExcludes "/home/banana";
+        exclude = common.mapExcludes home;
         doInit = true;
         encryption = {
             mode = "repokey-blake2";
-            passCommand = "cat /home/banana/backup.key";
+            passCommand = "cat ${home}/backup.key";
         };
         environment = {
-            BORG_RSH = "ssh -i /home/banana/.ssh/backup_ed25519";
+            BORG_RSH = "ssh -i ${home}/.ssh/backup_ed25519";
         };
         extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
         compression = "auto,zstd";

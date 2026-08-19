@@ -18,6 +18,19 @@ in
 
     programs.mpv.enable = true;
 
+
+    services.udiskie = {
+        enable = true;
+        settings = {
+            # workaround for
+            # https://github.com/nix-community/home-manager/issues/632
+            program_options = {
+                # replace with your favorite file manager
+                file_manager = "${pkgs.nautilus}/bin/nautilus";
+            };
+        };
+    };
+
     home.packages = with pkgs; [
         # nix
         nil
@@ -25,6 +38,7 @@ in
 
         # js/ts
         nodejs
+        bun
         prettierd
 
         # c
@@ -47,10 +61,14 @@ in
         # csharp
         dotnet-sdk
         jetbrains.rider
+        
+        # web
+        astro-language-server
 
         # CLI
         bc
         hledger
+        pass
         
         # GUI
         vesktop

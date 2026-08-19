@@ -23,6 +23,7 @@
     windowManager.qtile.enable = true;
   };
   services.displayManager.ly.enable = true;
+  services.udisks2.enable = true;
 
   services.syncthing = {
     enable = true;
@@ -41,6 +42,7 @@
 
   programs.fish.enable = true;
   programs.niri.enable = true;
+  programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.trace "warning: allowing unfree package ${pkgs.lib.getName pkg}" true;
