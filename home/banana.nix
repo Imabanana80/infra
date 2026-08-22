@@ -18,7 +18,6 @@ in
 
     programs.mpv.enable = true;
 
-
     services.udiskie = {
         enable = true;
         settings = {
@@ -61,14 +60,18 @@ in
         # csharp
         dotnet-sdk
         jetbrains.rider
+
+        # go
+        go
+        gopls
         
         # web
         astro-language-server
 
         # CLI
         bc
+        dig
         hledger
-        pass
         
         # GUI
         vesktop

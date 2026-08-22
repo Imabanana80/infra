@@ -8,4 +8,4 @@ require('config.keymap')
 
 require('config.lazy')
 
-vim.lsp.enable({ "lua_ls", "astro", "tailwindcss", "ts_ls", "nil" })
+vim.lsp.enable({ "lua_ls", "astro", "tailwindcss", "ts_ls", "nil", "gopls" })
