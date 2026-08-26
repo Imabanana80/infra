@@ -5,7 +5,7 @@
     ...
 }: 
 let
-    inherit (import ./lib.nix config) dots symlink;
+    inherit (import ../../lib/homelink.nix config) dots symlink;
 in
 
 {

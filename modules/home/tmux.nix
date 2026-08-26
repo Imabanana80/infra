@@ -16,6 +16,8 @@
         }
       ];
       extraConfig = ''
+# fish
+set -g default-shell /etc/profiles/per-user/banana/bin/fish
 # leader
 set -g prefix C-Space
 

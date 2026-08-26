@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 let
-    common = import ../backups.nix;
+    excludes = import ../../lib/exclude.nix;
     home = "/home/banana";
 in
 {
@@ -11,7 +11,7 @@ in
     services.borgbackup.jobs.banana-home = {
         paths = "${home}";
         repo = "ssh://cdxh0c4w@cdxh0c4w.repo.borgbase.com/./repo";
-        exclude = common.mapExcludes home;
+        exclude = excludes.mapExcludes home;
         doInit = true;
         encryption = {
             mode = "repokey-blake2";

@@ -16,5 +16,5 @@
       ".local/share/Steam"
     ];
 
-    mapExcludes = paths: map(x: paths + "/" + x) (import ./backups.nix).excludes;
+    mapExcludes = paths: map(x: paths + "/" + x) (import ./exclude.nix).excludes;
 }
