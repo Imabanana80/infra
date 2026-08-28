@@ -10,6 +10,7 @@ in
         ../../modules/home/fish.nix
         ../../modules/home/ghostty.nix
         ../../modules/home/tmux.nix
+        ../../modules/home/zen.nix
     ];
 
     home.packages = with pkgs; [
@@ -25,6 +26,7 @@ in
 
         # go
         go
+        gcc
         gopls
 
         # web
