@@ -58,7 +58,13 @@
         garamond-libre
     ];
 
-    virtualisation.docker.enable = true;
+    virtualisation.docker = {
+        enable = true;
+        rootless = {
+            enable = true;
+            setSocketVariable = true;
+        };
+    };
   
     system.stateVersion = "26.05";
 }
