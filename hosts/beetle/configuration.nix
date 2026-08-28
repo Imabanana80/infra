@@ -13,7 +13,12 @@
         }
     ];
 
+    wsl.enable = true;
+
     wsl.defaultUser = "banana";
+    users.users.banana = {
+        shell = pkgs.fish;
+    };
     networking.hostName = "beetle";
 
     wsl.docker-desktop.enable = true;

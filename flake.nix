@@ -34,14 +34,12 @@
                 
             ];
         };
-        nixosConfiguration.beetle = nixpkgs.lib.nixosSystem {
-            system = "x86_64-linx";
+        nixosConfigurations.beetle = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
             specialArgs = { inherit inputs; };
             modules = [
-                nixos-wsl.nixosModules.default
-                {
-                    wsl.enable = true;
-                }
+                inputs.nixos-wsl.nixosModules.default
+		./hosts/beetle/configuration.nix
             ];
         };
     };
