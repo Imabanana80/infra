@@ -1,11 +1,11 @@
 {
     pkgs,
-    zen-browser,
     config,
+    inputs,
     ...
 }: {
     imports = [
-        zen-browser.homeModules.twilight
+        inputs.zen-browser.homeModules.twilight
     ];
     programs.zen-browser = {
         enable = true;
