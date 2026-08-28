@@ -36,7 +36,7 @@
         };
         nixosConfiguration.beetle = nixpkgs.lib.nixosSystem {
             system = "x86_64-linx";
-            specialArgs = { inherit inputs; }
+            specialArgs = { inherit inputs; };
             modules = [
                 nixos-wsl.nixosModules.default
                 {
