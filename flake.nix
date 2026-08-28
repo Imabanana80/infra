@@ -6,6 +6,7 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nixos-wsl.url = "github:nix-community/NixOS-WSL/main"
         zen-browser = {
             url = "github:0xc000022070/zen-browser-flake";
             inputs = {
@@ -31,6 +32,16 @@
             modules = [
                 ./hosts/penguin/configuration.nix
                 
+            ];
+        };
+        nixosConfiguration.beetle = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linx";
+            specialArgs = { inherit inputs; }
+            modules = [
+                nixos-wsl.nixosModules.default
+                {
+                    wsl.enable = true;
+                }
             ];
         };
     };
