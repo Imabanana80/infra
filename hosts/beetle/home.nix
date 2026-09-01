@@ -34,7 +34,6 @@ in
         dig
         typst
         bootdev-cli
-
     ];
     
     # Tuxedo is installed via Cargo (and not on nixpkgs yet lol)

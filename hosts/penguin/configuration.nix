@@ -22,6 +22,15 @@
 
     networking.hostName = "penguin";
     networking.networkmanager.enable = true;
+    networking.nameservers = [ "194.242.2.4#base.dns.mullvad.net" ];
+    services.resolved = {
+        enable = true;
+        settings.Resolve = {
+            DNSSEC = "false";
+            Domains = ["~."];
+            DNSOverTLS = "true";
+        };
+    };
   
     services.xserver = {
         enable = true;
@@ -46,10 +55,6 @@
     programs.steam = {
         enable = true;
     };
-
-    environment.systemPackages = with pkgs; [
-        udiskie
-    ];
 
     fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono

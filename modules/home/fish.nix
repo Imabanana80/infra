@@ -8,9 +8,6 @@
         microfetch
     ];
 
-    programs.direnv = {
-        enable = true;
-    };
     programs.nix-your-shell = {
         enable = true;
         enableFishIntegration = true;

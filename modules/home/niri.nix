@@ -19,7 +19,7 @@ in
         xwayland-satellite
         fuzzel
         swaybg
-        nautilus
+        nemo
         inputs.qml-niri.packages.${pkgs.system}.quickshell
         libnotify
         wl-clipboard
