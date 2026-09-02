@@ -52,6 +52,7 @@
 
         nixosConfigurations.sgp-vps1 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs = { inherit inputs; };
             modules = [
                 inputs.disko.nixosModules.disko
                 ./hosts/sgp-vps1/configuration.nix

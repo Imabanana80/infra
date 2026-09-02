@@ -4,8 +4,8 @@ let
 in
 {
     imports = [ 
-        ../default.nix
         ./disk-config.nix
+        ../default.nix
         inputs.home-manager.nixosModules.home-manager {
             home-manager = {
                 useGlobalPkgs = true;
@@ -16,8 +16,6 @@ in
             };
         }
     ];
-
-    time.timeZone = "Asia/Singapore";
 
     boot.loader.grub = {
         efiSupport = true;
