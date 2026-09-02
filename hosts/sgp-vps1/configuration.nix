@@ -4,7 +4,17 @@ let
 in
 {
     imports = [ 
+        ../default.nix
         ./disk-config.nix
+        inputs.home-manager.nixosModules.home-manager {
+            home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.banana = import ./home.nix;
+                backupFileExtension = "backup";
+                extraSpecialArgs = { inherit inputs; };
+            };
+        }
     ];
 
     time.timeZone = "Asia/Singapore";
@@ -18,20 +28,15 @@ in
 
     services.openssh = {
         enable = true;
-        settings.PermitRootLogin = "prohibit-password";
+        settings = {
+            PermitRootLogin = "no";
+            PasswordAuthentication = false;
+        };
     };
 
-    environment.systemPackages = with pkgs; [
-        curl
-        gitMinimal
-        vim
-        btop
-    ];
-
-    users.users.root.openssh.authorizedKeys.keys = keys.ssh;
+    users.users.banana.openssh.authorizedKeys.keys = keys.ssh;
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
    
     system.stateVersion = "26.05";
 }
-
