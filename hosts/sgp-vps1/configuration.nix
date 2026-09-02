@@ -29,6 +29,8 @@ in
     ];
 
     users.users.root.openssh.authorizedKeys.keys = keys.ssh;
+
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
    
     system.stateVersion = "26.05";
 }
