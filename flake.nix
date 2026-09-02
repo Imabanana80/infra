@@ -10,6 +10,10 @@
             url = "github:nix-community/NixOS-WSL/main";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        disko = {
+            url = "github:nix-community/disko";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
         zen-browser = {
             url = "github:0xc000022070/zen-browser-flake";
             inputs = {
@@ -42,7 +46,16 @@
             specialArgs = { inherit inputs; };
             modules = [
                 inputs.nixos-wsl.nixosModules.default
-		./hosts/beetle/configuration.nix
+		        ./hosts/beetle/configuration.nix
+            ];
+        };
+
+        nixosConfigurations.sgp-vps1 = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+                inputs.disko.nixosModules.disko
+                ./hosts/sgp-vps1/configuration.nix
+                ./hosts/sgp-vps1/hardware-configuration.nix
             ];
         };
     };

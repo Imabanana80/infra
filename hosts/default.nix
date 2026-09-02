@@ -15,7 +15,6 @@
         vim
         btop
         git
-        tree
     ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
