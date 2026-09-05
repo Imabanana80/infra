@@ -43,7 +43,7 @@
     networking.firewall.interfaces.wg0.allowedTCPPorts = [ 22 ];
     networking.wireguard = {
         enable = true;  
-        interfaces.wg0 = {                                                                                                                                                             •
+        interfaces.wg0 = {
             ips = [ "10.101.0.1/24" ];
             listenPort = 51820;
             privateKeyFile = "/etc/wireguard/private.key";
