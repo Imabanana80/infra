@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, keys, ... }:
 {
     imports = [ 
         ../default.nix
@@ -82,6 +82,21 @@
         rootless = {
             enable = true;
             setSocketVariable = true;
+        };
+    };
+
+    networking.wireguard = {
+        enable = true;
+        interfaces.wg0 = {
+            ips = [ "10.101.0.2/24" ];
+            privateKeyFile = "/etc/wireguard/private.key";
+            peers = [
+                {
+                    publicKey = keys.wg.sgp-vps1;
+                    endpoint = "15.235.210.77:51820";
+                    allowedIPs = [ "10.101.0.0/24" ];
+                }
+            ];
         };
     };
   

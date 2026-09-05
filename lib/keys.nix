@@ -6,6 +6,6 @@
     };
     wg = {
         penguin = "RPKlUovSJo/VdpOQj9J0M/fDGcS8ClWdp2LxTklb60Q=";
-        sgp-vps1 = "J9FQPSdz/2xFvJD5ZQC1buPIZnhddeQ1kkNqondUVjk="
+        sgp-vps1 = "J9FQPSdz/2xFvJD5ZQC1buPIZnhddeQ1kkNqondUVjk=";
     };
 }

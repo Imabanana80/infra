@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, keys, ... }:
 {
     imports = [ 
         ./disk-config.nix
@@ -12,7 +12,7 @@
                 extraSpecialArgs = { inherit inputs; };
             };
         }
-        ./hosts/sgp-vps1/hardware-configuration.nix
+        ./hardware-configuration.nix
     ];
 
     networking.hostName = "sgp-vps1";
@@ -30,12 +30,31 @@
             PermitRootLogin = "no";
             PasswordAuthentication = false;
         };
+        openFirewall = false;
     };
     users.users.banana.openssh.authorizedKeys.keys = [
         keys.ssh.penguin
         keys.ssh.sequoia
         keys.ssh.beetle
     ];
+
+    
+    networking.firewall.allowedUDPPorts = [ 51820 ];
+    networking.firewall.interfaces.wg0.allowedTCPPorts = [ 22 ];
+    networking.wireguard = {
+        enable = true;  
+        interfaces.wg0 = {                                                                                                                                                             •
+            ips = [ "10.101.0.1/24" ];
+            listenPort = 51820;
+            privateKeyFile = "/etc/wireguard/private.key";
+            peers = [
+                {
+                    publicKey = keys.wg.penguin;
+                    allowedIPs = [ "10.101.0.2/32" ];
+                }
+            ];
+        };
+    };
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
    
