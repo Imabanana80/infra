@@ -1,7 +1,4 @@
 { config, lib, pkgs, inputs, ... }:
-let 
-    keys = import ../../lib/keys.nix;
-in
 {
     imports = [ 
         ./disk-config.nix
@@ -15,14 +12,17 @@ in
                 extraSpecialArgs = { inherit inputs; };
             };
         }
+        ./hosts/sgp-vps1/hardware-configuration.nix
     ];
+
+    networking.hostName = "sgp-vps1";
+
+    security.sudo.wheelNeedsPassword = false;
 
     boot.loader.grub = {
         efiSupport = true;
         efiInstallAsRemovable = true;
     };
-
-    networking.hostName = "sgp-vps1";
 
     services.openssh = {
         enable = true;
@@ -31,8 +31,11 @@ in
             PasswordAuthentication = false;
         };
     };
-
-    users.users.banana.openssh.authorizedKeys.keys = keys.ssh;
+    users.users.banana.openssh.authorizedKeys.keys = [
+        keys.ssh.penguin
+        keys.ssh.sequoia
+        keys.ssh.beetle
+    ];
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
    

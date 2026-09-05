@@ -32,7 +32,11 @@
             inputs.quickshell.follows = "quickshell";
         };
     };
-    outputs = { self, nixpkgs, ... } @inputs: {
+    outputs = { self, nixpkgs, ... } @inputs: 
+    let 
+        keys = import ./lib/keys.nix;
+    in
+    {
         nixosConfigurations.penguin = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit inputs; };
@@ -52,11 +56,10 @@
 
         nixosConfigurations.sgp-vps1 = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs; };
+            specialArgs = { inherit inputs; inherit keys; };
             modules = [
                 inputs.disko.nixosModules.disko
                 ./hosts/sgp-vps1/configuration.nix
-                ./hosts/sgp-vps1/hardware-configuration.nix
             ];
         };
     };
