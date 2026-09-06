@@ -13,6 +13,8 @@
             };
         }
         ./hardware-configuration.nix
+
+        ./services/forgejo.nix
     ];
 
     networking.hostName = "sgp-vps1";
@@ -29,6 +31,7 @@
         settings = {
             PermitRootLogin = "no";
             PasswordAuthentication = false;
+            ListenAddress = "10.101.0.1";
         };
         openFirewall = false;
     };
