@@ -43,6 +43,9 @@ in
             service = {
                 DISABLE_REGISTRATION = true;
             };
+            actions = {
+                ENABLED = false;
+            };
         };
     };
 
