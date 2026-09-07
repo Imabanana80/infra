@@ -17,6 +17,7 @@ in
 
         nil
         nixpkgs-fmt
+        gcc
     ];
 
     xdg.configFile."nvim" = {

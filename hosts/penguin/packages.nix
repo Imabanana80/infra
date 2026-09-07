@@ -10,7 +10,6 @@
 
         # go
         go
-        gcc
         gopls
 
         # web

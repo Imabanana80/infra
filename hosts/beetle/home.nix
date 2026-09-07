@@ -16,7 +16,6 @@ in
 
         # go
         go
-        gcc
         gopls
 
         # web
