@@ -14,6 +14,9 @@ in
         ripgrep
         tree-sitter
         lua-language-server
+
+        nil
+        nixpkgs-fmt
     ];
 
     xdg.configFile."nvim" = {

@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
     home.packages = with pkgs; [
-        # nix
-        nil
-        nixpkgs-fmt
-
         # java
         temurin-bin-21
         jetbrains.idea

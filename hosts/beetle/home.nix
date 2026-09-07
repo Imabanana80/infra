@@ -11,10 +11,6 @@ in
     ];
 
     home.packages = with pkgs; [
-        # nix
-        nil
-        nixpkgs-fmt
-
         # python
         python3
 
