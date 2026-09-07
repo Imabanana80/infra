@@ -17,7 +17,7 @@
         ./services/forgejo.nix
     ];
 
-    networking.hostName = "sgp-vps1";
+    networking.hostName = "betelgeuse";
 
     security.sudo.wheelNeedsPassword = false;
 
@@ -37,7 +37,7 @@
     };
     users.users.banana.openssh.authorizedKeys.keys = [
         keys.ssh.penguin
-        keys.ssh.sequoia
+        keys.ssh.articfox
         keys.ssh.beetle
     ];
 

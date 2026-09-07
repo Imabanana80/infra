@@ -92,7 +92,7 @@
             privateKeyFile = "/etc/wireguard/private.key";
             peers = [
                 {
-                    publicKey = keys.wg.sgp-vps1;
+                    publicKey = keys.wg.spruce;
                     endpoint = "15.235.210.77:51820";
                     allowedIPs = [ "10.101.0.0/24" ];
                 }

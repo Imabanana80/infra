@@ -54,12 +54,12 @@
             ];
         };
 
-        nixosConfigurations.sgp-vps1 = nixpkgs.lib.nixosSystem {
+        nixosConfigurations.spruce = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             specialArgs = { inherit inputs; inherit keys; };
             modules = [
                 inputs.disko.nixosModules.disko
-                ./hosts/sgp-vps1/configuration.nix
+                ./hosts/spruce/configuration.nix
             ];
         };
     };
