@@ -32,6 +32,7 @@ in
             server = {
                 DOMAIN = "git.potassium.sh";
                 ROOT_URL = "https://${srv.DOMAIN}/"; 
+                LANDING_PAGE = "/banana";
                 HTTP_ADDR = "127.0.0.1";
                 HTTP_PORT = 3000;
                 START_SSH_SERVER = true;
