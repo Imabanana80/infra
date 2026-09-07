@@ -1,6 +1,7 @@
 [user]
 	email = git@imabanana80.com
 	name = Banana
+    signingKey = ~/.ssh/id_ed25519.pub
 
 [core]
     compression = 8
@@ -8,8 +9,16 @@
     preloadindex = true
 	autocrlf = input
 
-[inti]
-    defaultBranch = main
+[init]
+	defaultBranch = main
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    format = ssh
+[gpg "ssh"]
+        allowedSignersFile = ~/.ssh/allowed_signers
 
 [status]
     branch = true
@@ -36,8 +45,9 @@
 
 [tag]
     sort = -taggerdate
+    
 [alias]
     tree = log --oneline --graph --all
     mirror = !git-mirror.sh
-[init]
-	defaultBranch = main
+
+
