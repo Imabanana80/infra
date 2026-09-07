@@ -17,7 +17,7 @@
         ./services/forgejo.nix
     ];
 
-    networking.hostName = "betelgeuse";
+    networking.hostName = "spruce";
 
     security.sudo.wheelNeedsPassword = false;
 
