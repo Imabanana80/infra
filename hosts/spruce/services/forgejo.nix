@@ -3,6 +3,7 @@ let
     cfg = config.services.forgejo;
     srv = cfg.settings.server;
     anubis = "127.0.0.1:8923";
+    datapath = "/var/lib/forgejo";
 in
 {
     services.caddy = {
@@ -56,5 +57,25 @@ in
             AmbientCapabilities = lib.mkForce [ "CAP_NET_BIND_SERVICE" ];
             CapabilityBoundingSet = lib.mkForce [ "CAP_NET_BIND_SERVICE" ];
         };
+    };
+
+    environment.systemPackages = with pkgs; [
+        borgbackup
+    ];
+
+    services.borgbackup.jobs.forgejo = {
+        paths = "${datapath}";
+        repo = "ssh://ei7yyucr@ei7yyucr.repo.borgbase.com/./repo";
+        doInit = true;
+        encryption = {
+            mode = "repokey-blake2";
+            passCommand = "cat ${datapath}/backup.key";
+        };
+        environment = {
+            BORG_RSH = "ssh -i ${datapath}/.ssh/backup_ed25519";
+        };
+        extraCreateArgs = "--verbose --stats --checkpoint-interval 600";
+        compression = "auto,zstd";
+        startAt = "00,06,12,18:00";
     };
 }
