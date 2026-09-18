@@ -14,6 +14,7 @@
       "*/venv"
       "*/.venv"
       ".local/share/Steam"
+      "Games"
     ];
 
     mapExcludes = paths: map(x: paths + "/" + x) (import ./exclude.nix).excludes;
